@@ -1,0 +1,34 @@
+body{
+	background-color : #10572d;
+}
+.cadre{
+	background-color : #28b63f;
+	text-align : center ;
+	width:50%;
+	margin-top : 5em;
+	margin-left: auto;
+	margin-right: auto;
+}
+.cadrebody{
+	margin : 3em;
+	padding : 3em;
+}
+.cadre>footer{
+	padding-bottom : 0,5em;
+	font-style: italic;
+}
+
+.police{ font-family: 'Times New Roman', sans-serif;
+}
+
+.cadre2 {border: black;
+	border:simple;
+	width: 75%;
+	border-width: 0,5em;
+	border-radius: 5em; 
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 3px 2px 2px
+}
+
+.obligatoire {color: red;}

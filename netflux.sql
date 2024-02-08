@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 05 fév. 2024 à 17:01
+-- Généré le : mer. 07 fév. 2024 à 15:01
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -55,15 +55,20 @@ INSERT INTO `acteur` (`IdActeur`, `Nom`, `Prénom`, `Date_Naissance`, `Date_Mort
 (13, 'Blanc', 'Michel', '1952-04-16', NULL),
 (14, 'Guide', 'Vanessa', '1983-03-21', NULL),
 (15, 'Johansson', 'Scarlett', '1984-11-22', NULL),
-(16, 'Kitano', 'Takeshi', '19847-01-18', NULL),
+(16, 'Kitano', 'Takeshi', '0000-00-00', NULL),
 (17, 'Pitt', 'Michael', '1981-04-10', NULL),
 (18, 'Asbaek', 'Pilou', '1982-03-02', NULL),
 (19, 'Binoche', 'Juliette', '1964-03-09', NULL),
 (20, 'Washington', 'Denzel', '1954-12-28', NULL),
 (21, 'Owen', 'Clive', '1964-10-03', NULL),
 (22, 'Foster', 'Jodie', '1962-11-19', NULL),
-(23, 'Plummer', 'Christopher', '1929-12-13', '2021-02-5'),
-(24, 'Dafoe', 'Willem', '1955-07-22', NULL);
+(23, 'Plummer', 'Christopher', '1929-12-13', '2021-02-05'),
+(24, 'Dafoe', 'Willem', '1955-07-22', NULL),
+(25, 'Cranston', 'Bryan', '1957-03-07', NULL),
+(26, 'Paul', 'Aaron', '1979-08-27', NULL),
+(27, 'Gunn', 'Anna', '1968-08-11', NULL),
+(28, 'Norris', 'Dean', '1963-04-08', NULL),
+(29, 'Odenkirk', 'Bob', '1962-10-22', NULL);
 
 -- --------------------------------------------------------
 
@@ -81,12 +86,22 @@ CREATE TABLE `appartient` (
 --
 
 INSERT INTO `appartient` (`FkVideo`, `FkGenre`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
 (1, 4),
+(2, 2),
 (2, 5),
 (3, 3),
 (3, 6),
+(4, 1),
 (4, 7),
-(5, 8);
+(5, 8),
+(5, 10),
+(6, 8),
+(6, 9),
+(6, 10);
+
 -- --------------------------------------------------------
 
 --
@@ -110,8 +125,9 @@ INSERT INTO `genre` (`IdGenre`, `Libelle`) VALUES
 (5, 'Fantasy'),
 (6, 'Comédie'),
 (7, 'Science-fiction'),
-(8, 'Policier');
-
+(8, 'Policier'),
+(9, 'Drame'),
+(10, 'Thriller');
 
 -- --------------------------------------------------------
 
@@ -152,7 +168,13 @@ INSERT INTO `joue` (`FkVideo`, `FkActeur`, `Role`) VALUES
 (5, 21, 'Dalton Russell'),
 (5, 22, 'Madeleine White'),
 (5, 23, 'Arthur Case'),
-(5, 24, 'John Darius');
+(5, 24, 'John Darius'),
+(6, 25, 'Walter White'),
+(6, 26, 'Jesse Pinkman'),
+(6, 27, 'Skyler White'),
+(6, 28, 'Henry Schrader'),
+(6, 29, 'Saul Goodman');
+
 -- --------------------------------------------------------
 
 --
@@ -171,7 +193,12 @@ CREATE TABLE `obtientacteur` (
 INSERT INTO `obtientacteur` (`FkActeur`, `FkRecompense`) VALUES
 (1, 1),
 (6, 3),
-(21, 8);
+(21, 8),
+(25, 9),
+(25, 10),
+(25, 11),
+(25, 12);
+
 -- --------------------------------------------------------
 
 --
@@ -191,6 +218,7 @@ INSERT INTO `obtientrealisateur` (`FkRealisateur`, `FkRecompense`) VALUES
 (2, 4),
 (5, 5),
 (5, 7);
+
 -- --------------------------------------------------------
 
 --
@@ -208,7 +236,12 @@ CREATE TABLE `obtientvideo` (
 
 INSERT INTO `obtientvideo` (`FkVideo`, `FkRecompense`) VALUES
 (2, 2),
-(5, 6);
+(5, 6),
+(6, 13),
+(6, 14),
+(6, 15),
+(6, 16);
+
 -- --------------------------------------------------------
 
 --
@@ -231,13 +264,15 @@ INSERT INTO `producteur` (`IdProducteur`, `RaisonSocial`, `Date_Creation`, `Adre
 (1, 'DC Studios', '2016', '4000 Warner Boulevard Burbank, Californie 91522 ', 'copyright@wb.com'),
 (2, 'New Line Cinema ', '1967', '4000 Warner Boulevard Burbank, Californie 91522', 'copyright@wb.com'),
 (3, 'WingNut Films', '1987', 'Stone Street Wellington 6022 New Zealand', 'dion@filmtec.co.nz'),
-(4, 'Pathé', '1896', '2 rue Lamennais 75008 Paris', 'accueil@pathe.com'),
+(4, 'Pathé', '0000', '2 rue Lamennais 75008 Paris', 'accueil@pathe.com'),
 (5, 'Paramount Pictures', '1916', '5555 Melrose Avenue,  Californie', 'Studio_Operations@paramount.com'),
 (6, 'DreamWorks Pictures', '1994', '1000 Flower Street 91201 Glendale, Californie', 'DreamWorksJrCommunity@dreamworks.com'),
 (7, 'Reliance Entertainment', '2005', '5th Floor, Valecha Chambers, New Link Road, Andheri (W), Mumbai -400053', 're.info@restudios.co.in'),
 (8, 'Universal Pictures', '1912', '00 Universal City Plaza Drive in Universal City, California.', 'dceline.demoulin@nbcuni.com'),
 (9, 'Imagine Entertainment', '1985', '150 S El Camino Dr, Beverly Hills, Californi 90212', NULL),
-(10, '40 Acres & A Mule Filmworks', '1983', ' 75 S Elliott Pl, Brooklyn, New York', 'contactus@40acres.com');
+(10, '40 Acres & A Mule Filmworks', '1983', ' 75 S Elliott Pl, Brooklyn, New York', 'contactus@40acres.com'),
+(11, 'Sony Pictures Television', '2002', '10202 W WASHINGTON BLVD, Culver City, California', 'CCPA@spe.sony.com');
+
 -- --------------------------------------------------------
 
 --
@@ -264,7 +299,8 @@ INSERT INTO `produit` (`FkVideo`, `FkProducteur`) VALUES
 (4, 7),
 (5, 8),
 (5, 9),
-(5, 10);
+(5, 10),
+(6, 11);
 
 -- --------------------------------------------------------
 
@@ -289,7 +325,10 @@ INSERT INTO `realisateur` (`IdRealisateur`, `Nom`, `Prénom`, `Date_Naissance`, 
 (2, 'Jackson', 'Peter', '1961-10-31', NULL),
 (3, 'Benzaquen', 'Arthur', '1974-01-01', NULL),
 (4, 'Sanders', 'Rupert', '1971-03-16', NULL),
-(5, 'Lee', 'Spike', '1957-03-20', NULL);
+(5, 'Lee', 'Spike', '1957-03-20', NULL),
+(6, 'Gilligan', 'Vince', '1967-02-10', NULL),
+(7, 'Bernstein', 'Adam', '1960-05-07', NULL),
+(8, 'Cranston', 'Bryan', '1956-03-07', NULL);
 
 -- --------------------------------------------------------
 
@@ -311,7 +350,10 @@ INSERT INTO `realise` (`FkVideo`, `FkRealisateur`) VALUES
 (2, 2),
 (3, 3),
 (4, 4),
-(5, 5);
+(5, 5),
+(6, 6),
+(6, 7),
+(6, 8);
 
 -- --------------------------------------------------------
 
@@ -331,14 +373,22 @@ CREATE TABLE `recompense` (
 --
 
 INSERT INTO `recompense` (`IdRecompense`, `Nom`, `Catégorie`, `Annee`) VALUES
-(1, 'Acteur de cinéma préféré', "2023 Kids Choice Awards", '2023'),
+(1, 'Acteur de cinéma préféré', '2023 Kids Choice Awards', '2023'),
 (2, 'Meilleur film', 'Empire Awards', '2002'),
 (3, 'Meilleur acteur', 'Empire Awards', '2002'),
 (4, 'Meilleur script', 'Prix Nebula', '2003'),
 (5, 'Meilleur réalisateur', 'Black Movie Awards', '2006'),
 (6, 'Meilleur film', 'Australian Academy of Cinema and Television Arts Awards', '2007'),
 (7, 'Meilleur réalisateur', 'Black Reel Awards', '2007'),
-(8, 'Meilleur acteur', 'Central Ohio Film Critics Association Awards', '2007');
+(8, 'Meilleur acteur', 'Central Ohio Film Critics Association Awards', '2007'),
+(9, 'Meilleur acteur', 'Primetime Emmy Awards', '2008'),
+(10, 'Meilleur acteur', 'Primetime Emmy Awards', '2009'),
+(11, 'Meilleur acteur', 'Primetime Emmy Awards', '2010'),
+(12, 'Meilleur acteur', 'Primetime Emmy Awards', '2014'),
+(13, 'meilleure série télévisée dramatique', 'TCA Award', '2010'),
+(14, 'meilleure série télévisée dramatique', 'TCA Award', '2012'),
+(15, 'meilleure série télévisée dramatique', 'TCA Award', '2009'),
+(16, 'meilleure série télévisée dramatique', 'Satellite Award', '2010');
 
 -- --------------------------------------------------------
 
@@ -405,7 +455,8 @@ INSERT INTO `video` (`IdVideo`, `Titre`, `FkType`, `Date_Sortie`, `Duree`, `Imag
 (2, 'Le Seigneur des anneaux : La Communauté de l\'anneau', 1, '2001-12-19', 178, 'SeigneurAnneaux'),
 (3, 'Les nouvelles aventures d\'Aladin', 1, '2015-10-14', 104, 'Aladin'),
 (4, 'Ghost in The Shell', 1, '2017-03-29', 104, 'Ghost'),
-(5, "Inside Man : L'Homme de l'intérieur", 1, '2006-04-12', 129, 'InsideMan');
+(5, 'Inside Man : L\'Homme de l\'intérieur', 1, '2006-04-12', 129, 'InsideMan'),
+(6, 'Breaking Bad', 3, '2008-01-20', 45, 'BreakingBad');
 
 --
 -- Index pour les tables déchargées
