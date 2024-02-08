@@ -29,7 +29,6 @@ else{
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <title>Netflux</title>
         <link rel="stylesheet" href="style_netflux.css">
-        <script type="text/javascript" src="monscript.js"></script>
     </head>
 
     <body>
@@ -43,6 +42,7 @@ else{
                     <nav>
 
                         <ul>
+                            <li> <input type="search" id="search"/>
                             <li id="accueil"><a href="profil.php">Accueil</a></li>
                             <li>Séries</li>
                             <li id="film">Films</li>
@@ -77,16 +77,11 @@ else{
                 <?php 
                     foreach($data as $element){           
                     $img = "./images/".$element["Image"].".jpg";
-                    echo '<li id="pop" class="l1"><img src="'.$img.'" alt=""></li>';     
-                    };      
-                ?>
+                    echo '<li id="video'.$element["IdVideo"].'" class="video'.$element["IdVideo"].'"><img src="'.$img.'" alt=""></li>';     
+                    };       
+                ?></ul>
             </div>
         </form>
-
-
-
-
-        
     </body>
 </html>
 

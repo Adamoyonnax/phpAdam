@@ -13,6 +13,7 @@
 				<form action="traitement_inscription.php" method="post">
 					<label for="identifiant">Identifiant : </label>
 					<input type="text" name="identifiant" id="identifiant" required />
+					<input type="submit" value="Verifier">
 
 					<br/>
 					
@@ -65,5 +66,6 @@
 				<p><a href="authentification.php">Retour à la page de connexion.</a></p>
 			</footer>
 		</div>
+		<script type="text/javascript" src="monscript.js"></script>
 	</body>
 </html>

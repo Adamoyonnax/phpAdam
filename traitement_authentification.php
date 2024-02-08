@@ -5,7 +5,7 @@ $identifiant = $_POST["identifiant"];
 $mdp = $_POST["mdp"];
 
 $bdd = new PDO( 
-    'mysql:host=localhost;dbname=utilisateur;charset=utf8', 
+    'mysql:host=localhost;dbname=netflux;charset=utf8', 
     'root',
     ''
 );
@@ -19,7 +19,7 @@ $requete->execute();
 $resultat = $requete->fetch();
 
 if ($resultat) {
-    header("Location: Site.php");
+    header("Location: profil.php");
 } 
 else {
     header("Location: Authentification.php?erreur=Incorrect");
