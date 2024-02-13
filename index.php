@@ -13,10 +13,10 @@
             <h1>Qui est-ce ?</h1>
 
             <ul>
-                <li><a href="profil.php"><img class="img1" src="profil1.png" alt=""></a><span>Pierre</span></li>
-                <li><a href="profil.php"><img class="img2" src="profil2.png" alt=""></a><span>Victor</span></li>
-                <li><a href="profil.php"><img class="img3" src="profil3.png" alt=""></a><span>Yoann</span></li>
-                <li><a href="profil.php"><img class="img4" src="profil4.png" alt=""></a><span>Maxime</span></li>
+                <li><a href="profil.php"><img class="img1" src="images/profil1.png" alt=""></a><span>Pierre</span></li>
+                <li><a href="profil.php"><img class="img2" src="images/profil2.png" alt=""></a><span>Victor</span></li>
+                <li><a href="profil.php"><img class="img3" src="images/profil3.png" alt=""></a><span>Yoann</span></li>
+                <li><a href="profil.php"><img class="img4" src="images/profil4.png" alt=""></a><span>Maxime</span></li>
             </ul>
 
 

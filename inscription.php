@@ -9,11 +9,13 @@
 		<div class="cadre cadre2 police">
 			<div class="cadrebody police">
 				<h1>Inscription</h1>
+
+
 				
 				<form action="traitement_inscription.php" method="post">
 					<label for="identifiant">Identifiant : </label>
 					<input type="text" name="identifiant" id="identifiant" required />
-					<input type="submit" value="Verifier">
+					<button type= "button" id="verifier">Verifier</button>				
 
 					<br/>
 					

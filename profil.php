@@ -1,7 +1,7 @@
 
 <?php
 
-$bd = new PDO("mysql:host=127.0.0.1;dbname=netflux;charset=utf8", "root", "");
+$bd = new PDO("mysql:host=127.0.0.1;dbname=netflux_adam;charset=utf8", "root", "");
 
 if(isset($_GET["genre"])) {
 
@@ -19,7 +19,10 @@ else{
     $data = $requete->fetchAll();
 }
 
-
+if(isset($_GET['deconnecter'])) {
+    header("Location: authentification.php");
+    exit(); 
+}
 
 ?>
 
@@ -44,11 +47,10 @@ else{
                         <ul>
                             <li> <input type="search" id="search"/>
                             <li id="accueil"><a href="profil.php">Accueil</a></li>
-                            <li>Séries</li>
-                            <li id="film">Films</li>
-                            <li>Ma liste</li>
-                            <li>Explorer par langue</li>
-                            <li id="genre">
+                            <li><a href="profil.php">Séries</a></li>
+                            <li id="film"><a href="profil.php">Films</a></li>
+                            <li><a href="profil.php">Ma liste</a></li>
+                            <li id="liste">
                                 <select name="genre" id="genre">
                                 <option value="Action">Action</option>
                                 <option value="Aventure">Aventure</option>
@@ -62,6 +64,7 @@ else{
                                 </select>
                                 <input type="submit" value="valider">
                             </li>
+                            <li><button type="submit" name="deconnecter" value="deconnecter">Déconnecter</button></li>
 
                         </ul>
                     </nav>

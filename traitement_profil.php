@@ -1,4 +1,10 @@
 <?php
+
+if(isset($_POST['deconnecter'])) {
+    header("Location: authentification.php");
+    exit(); 
+}
+
 $bd = new PDO("mysql:host=127.0.0.1;dbname=netflux;charset=utf8", "root", "");
 
 if (isset($_GET["id"])) {

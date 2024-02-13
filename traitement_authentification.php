@@ -5,7 +5,7 @@ $identifiant = $_POST["identifiant"];
 $mdp = $_POST["mdp"];
 
 $bdd = new PDO( 
-    'mysql:host=localhost;dbname=netflux;charset=utf8', 
+    'mysql:host=localhost;dbname=netflux_adam;charset=utf8', 
     'root',
     ''
 );
