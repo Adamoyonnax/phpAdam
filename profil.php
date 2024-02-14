@@ -1,7 +1,14 @@
 
 <?php
+session_start();
+if(empty($_SESSION["identifiant"])){
+    header("Location: authentification.php?ErrorSession");
+    session_destroy();
+    exit();
+}
 
 $bd = new PDO("mysql:host=127.0.0.1;dbname=netflux_adam;charset=utf8", "root", "");
+
 
 if(isset($_GET["genre"])) {
 
@@ -20,6 +27,7 @@ else{
 }
 
 if(isset($_GET['deconnecter'])) {
+    session_destroy();
     header("Location: authentification.php");
     exit(); 
 }
@@ -79,12 +87,17 @@ if(isset($_GET['deconnecter'])) {
                 <ul class="list">           
                 <?php 
                     foreach($data as $element){           
-                    $img = "./images/".$element["Image"].".jpg";
-                    echo '<li id="video'.$element["IdVideo"].'" class="video'.$element["IdVideo"].'"><img src="'.$img.'" alt=""></li>';     
+                        $img = "./images/".$element["Image"].".jpg";
+                        echo '<p> Titre :'.$element["Titre"]."\n </p>";
+                        echo '<p> Date de Sortie :'.$element["Date_Sortie"]." \n </p>";                         
+                        echo '<p> Durée'.$element["Duree"]."\n </p>";
+                        echo '<li id="video'.$element["IdVideo"].'" class="video'.$element["IdVideo"].'"><img src="'.$img.'" alt=""></li>'; 
+
                     };       
                 ?></ul>
             </div>
         </form>
+        <script 
     </body>
 </html>
 

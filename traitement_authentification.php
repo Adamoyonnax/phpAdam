@@ -1,6 +1,6 @@
 
 <?php 
-
+session_start();
 $identifiant = $_POST["identifiant"];
 $mdp = $_POST["mdp"];
 
@@ -24,4 +24,7 @@ if ($resultat) {
 else {
     header("Location: Authentification.php?erreur=Incorrect");
 }
+
+
+$_SESSION['identifiant'] = $identifiant;
 ?>

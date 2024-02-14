@@ -1,6 +1,7 @@
 <?php
 $bdd = new PDO('mysql:host=localhost;dbname=netflux_adam;charset=utf8', 'root', '');
 
+
 $identifiant = $_POST["identifiant"];
 $mdp = $_POST["mdp"];
 $mdpc = $_POST["mdpc"];

@@ -10,8 +10,9 @@
 			<div class="cadrebody police">
 				<h1>Inscription</h1>
 
-
-				
+				<form action="traitement_inscription.php" method="post">
+					<button type= "button" id="verifier">Verifier</button>	
+				</form>
 				<form action="traitement_inscription.php" method="post">
 					<label for="identifiant">Identifiant : </label>
 					<input type="text" name="identifiant" id="identifiant" required />
