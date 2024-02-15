@@ -131,3 +131,14 @@ nav>ul>li{
     border: 2px solid;
     color: rgb(235, 232, 232);
 }
+
+.text-under-image {
+    text-align: center;
+    color: white;
+    margin-top: 10px; 
+    display : none;
+}
+
+.text-under-image p {
+    margin: 5px 0;
+}

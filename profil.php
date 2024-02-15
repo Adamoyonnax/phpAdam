@@ -53,7 +53,6 @@ if(isset($_GET['deconnecter'])) {
                     <nav>
 
                         <ul>
-                            <li> <input type="search" id="search"/>
                             <li id="accueil"><a href="profil.php">Accueil</a></li>
                             <li><a href="profil.php">Séries</a></li>
                             <li id="film"><a href="profil.php">Films</a></li>
@@ -80,7 +79,7 @@ if(isset($_GET['deconnecter'])) {
             </div>
         
 
-            <div class="video">
+            <div>
 
                 <h2>Tendances actuelles</h2>
 
@@ -88,16 +87,19 @@ if(isset($_GET['deconnecter'])) {
                 <?php 
                     foreach($data as $element){           
                         $img = "./images/".$element["Image"].".jpg";
-                        echo '<p> Titre :'.$element["Titre"]."\n </p>";
-                        echo '<p> Date de Sortie :'.$element["Date_Sortie"]." \n </p>";                         
-                        echo '<p> Durée'.$element["Duree"]."\n </p>";
-                        echo '<li id="video'.$element["IdVideo"].'" class="video'.$element["IdVideo"].'"><img src="'.$img.'" alt=""></li>'; 
-
+                        echo '<li id="video' . $element["IdVideo"] . '" >';
+                        echo '<img  id="image'. $element["IdVideo"].'" class="video" src="' . $img . '" alt="">';
+                        echo '<div class="text-under-image">';
+                        echo '<p>' . $element["Titre"] . "</p>";
+                        echo '<p> Date de Sortie : ' . $element["Date_Sortie"] . "</p>";
+                        echo '<p> Durée : ' . $element["Duree"] . "</p>";
+                        echo '</div>';
+                        echo '</li>';
                     };       
                 ?></ul>
             </div>
         </form>
-        <script 
+        <script src="image.js"></script>
     </body>
 </html>
 
